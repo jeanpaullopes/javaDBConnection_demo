@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`pessoas` (
   `cpf` VARCHAR(15) NULL,
   `tipo` CHAR(1) NOT NULL,
   PRIMARY KEY (`ra`),
-  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC) VISIBLE)
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC))
 ENGINE = InnoDB;
 
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`turmas` (
   `turmascol` INT NULL,
   `ucs_iducs` INT NOT NULL,
   PRIMARY KEY (`idturmas`),
-  INDEX `fk_turmas_ucs_idx` (`ucs_iducs` ASC) VISIBLE,
+  INDEX `fk_turmas_ucs_idx` (`ucs_iducs` ASC),
   CONSTRAINT `fk_turmas_ucs`
     FOREIGN KEY (`ucs_iducs`)
     REFERENCES `mydb`.`ucs` (`iducs`)
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`pessoas_turmas` (
   `data` DATETIME NOT NULL,
   `ativo` TINYINT NULL DEFAULT 1,
   PRIMARY KEY (`ra`, `iidturmas`),
-  INDEX `fk_pessoas_has_turmas_turmas1_idx` (`iidturmas` ASC) VISIBLE,
-  INDEX `fk_pessoas_has_turmas_pessoas1_idx` (`ra` ASC) VISIBLE,
+  INDEX `fk_pessoas_has_turmas_turmas1_idx` (`iidturmas` ASC),
+  INDEX `fk_pessoas_has_turmas_pessoas1_idx` (`ra` ASC),
   CONSTRAINT `fk_pessoas_has_turmas_pessoas1`
     FOREIGN KEY (`ra`)
     REFERENCES `mydb`.`pessoas` (`ra`)
