@@ -7,6 +7,7 @@ public class Turma {
     private int ucs_iducs;
 
     
+    
     public Turma(int id, String apelido, int capacidade, int ucs_iducs) {
         this.id = id;
         this.apelido = apelido;
